@@ -1,0 +1,195 @@
+<!-- index.html -->
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title data-i18n="meta.title">Stewardship in Practice</title>
+    <meta
+      name="description"
+      content="A simple, step-by-step approach to declutter with purpose."
+      data-i18n-attr="content"
+      data-i18n="meta.description"
+    />
+    <link rel="stylesheet" href="styles.css" />
+
+    <!-- Minimal styling so the CTA behaviors in script.js are visible even without a full CSS file -->
+    <style>
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      .language-switcher {
+        display: flex;
+        gap: 0.5rem;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+
+      .language-switcher button[aria-pressed="true"] {
+        font-weight: 700;
+        text-decoration: underline;
+      }
+
+      .floating-cta {
+        position: fixed;
+        right: 1rem;
+        bottom: 1rem;
+        z-index: 50;
+        opacity: 0;
+        transform: translateY(8px);
+        pointer-events: none;
+        transition: opacity 180ms ease, transform 180ms ease;
+      }
+
+      .floating-cta.is-visible {
+        opacity: 1;
+        transform: translateY(0);
+        pointer-events: auto;
+      }
+
+      .action-link.cta-animate {
+        animation: ctaPulse 650ms ease-out;
+      }
+
+      @keyframes ctaPulse {
+        0% {
+          transform: scale(1);
+        }
+        40% {
+          transform: scale(1.04);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+    </style>
+  </head>
+
+  <body>
+    <a class="sr-only" href="#main" data-i18n="a.skip">Skip to content</a>
+
+    <header>
+      <div class="header-inner">
+        <div class="brand">
+          <span class="brand-name" data-i18n="brand.name">Stewardship in Practice</span>
+        </div>
+
+        <nav aria-label="Primary">
+          <ul>
+            <li><a href="#home" data-i18n="nav.home">Home</a></li>
+            <li><a href="#why" data-i18n="nav.why">Why it matters</a></li>
+            <li><a href="#method" data-i18n="nav.method">The Method</a></li>
+            <li><a href="#resources" data-i18n="nav.resources">Resources</a></li>
+          </ul>
+        </nav>
+
+        <div class="language-switcher" aria-label="Language switcher">
+          <span class="sr-only" data-i18n="lang.label">Language</span>
+          <button type="button" class="lang-btn" data-lang="en" aria-pressed="true">
+            <span aria-hidden="true">EN</span>
+            <span class="sr-only">English</span>
+          </button>
+          <button type="button" class="lang-btn" data-lang="fr" aria-pressed="false">
+            <span aria-hidden="true">FR</span>
+            <span class="sr-only">Français</span>
+          </button>
+          <button type="button" class="lang-btn" data-lang="ko" aria-pressed="false">
+            <span aria-hidden="true">KO</span>
+            <span class="sr-only">한국어</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <section id="home" aria-label="Hero">
+        <h1 data-i18n="hero.title">Declutter with purpose.</h1>
+        <p data-i18n="hero.lead">
+          A simple, step-by-step approach to keep what you value and let go of what you don’t.
+        </p>
+
+        <div class="hero-actions">
+          <a class="action-link" href="#method" data-i18n="cta.takeAction">Take Action Now</a>
+          <a class="secondary-link" href="#why" data-i18n="cta.learnMore">Learn the method</a>
+        </div>
+      </section>
+
+      <section id="why">
+        <h2 data-i18n="why.title">Why stewardship matters</h2>
+        <p data-i18n="why.body">
+          Stewardship is caring for what you’ve been given—time, space, and belongings—so they
+          serve your life, not weigh it down.
+        </p>
+      </section>
+
+      <section id="method" aria-labelledby="method-title">
+        <h2 id="method-title" tabindex="-1" data-i18n="method.title">Actionable Stewardship</h2>
+        <p data-i18n="method.lead">Use this five-step loop whenever you declutter:</p>
+
+        <ol>
+          <li>
+            <h3 data-i18n="method.step1.title">1. Set a boundary</h3>
+            <p data-i18n="method.step1.body">Choose one drawer, one shelf, or 15 minutes.</p>
+          </li>
+          <li>
+            <h3 data-i18n="method.step2.title">2. Sort honestly</h3>
+            <p data-i18n="method.step2.body">
+              Keep, donate, recycle, or discard—no “maybe” pile.
+            </p>
+          </li>
+          <li>
+            <h3 data-i18n="method.step3.title">3. Return with intention</h3>
+            <p data-i18n="method.step3.body">
+              Put items where you’ll use them. Store by frequency.
+            </p>
+          </li>
+          <li>
+            <h3 data-i18n="method.step4.title">4. Release responsibly</h3>
+            <p data-i18n="method.step4.body">
+              Donate what’s usable, recycle what isn’t, and trash the rest.
+            </p>
+          </li>
+          <li>
+            <h3 data-i18n="method.step5.title">5. Maintain lightly</h3>
+            <p data-i18n="method.step5.body">One in, one out. Review monthly.</p>
+          </li>
+        </ol>
+      </section>
+
+      <section id="resources">
+        <h2 data-i18n="resources.title">Quick resources</h2>
+        <ul>
+          <li data-i18n="resources.r1">10-minute reset checklist</li>
+          <li data-i18n="resources.r2">Donation drop-off plan</li>
+          <li data-i18n="resources.r3">“Keep list” questions</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer>
+      <p data-i18n="footer.note">Built for practical, respectful decluttering.</p>
+    </footer>
+
+    <!-- Floating CTA so the “Take Action Now” button can remain available while scrolling -->
+    <a class="action-link floating-cta" href="#method" data-i18n="cta.takeAction">
+      Take Action Now
+    </a>
+
+    <noscript>
+      <p data-i18n="noscript">
+        This page works best with JavaScript enabled for language switching and smooth scrolling.
+      </p>
+    </noscript>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
